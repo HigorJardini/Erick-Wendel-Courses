@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+      project_ew:
+        dns: 8.8.8.8
+        build:
+          context: .
+          dockerfile: Dockerfile
+        container_name: project_ew
+        volumes:
+          - ../project_ew:/usr/share/nginx/html
+        ports:
+          - "8899:80"
+        networks:
+          - project
+
+networks:
+  project:
